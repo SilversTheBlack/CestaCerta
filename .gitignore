@@ -9,6 +9,10 @@ local.properties
 # Log/OS Files
 *.log
 
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
 # Android Studio generated files and folders
 captures/
 .externalNativeBuild/
