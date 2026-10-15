@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">CestaCerta</string>
+    <string name="login_label">Login</string>
+    <string name="senha_label">Senha</string>
+    <string name="hint_email">Insira seu e-mail</string>
+    <string name="hint_senha">Insira sua senha</string>
+    <string name="esqueci_senha">Esqueci minha senha</string>
+    <string name="fazer_login">Fazer Login</string>
+    <string name="entrar_com">Entrar com:</string>
+    <string name="sem_conta">Não tem uma conta? Faça seu cadastro!</string>
+    <!-- Descrições de acessibilidade das imagens -->
+    <string name="desc_logo">Logo do Cesta Certa</string>
+    <string name="desc_google">Entrar com Google</string>
+    <string name="desc_apple">Entrar com Apple</string>
+    <string name="desc_facebook">Entrar com Facebook</string>
+    <string name="desc_social_apps">Ícones de login social</string>
 </resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margem_tela">32dp</dimen>
+    <dimen name="altura_campo">48dp</dimen>
+    <dimen name="altura_botao">52dp</dimen>
+    <dimen name="raio_campo">12dp</dimen>
+    <dimen name="tamanho_logo">90dp</dimen>
+    <dimen name="tamanho_icone_social">40dp</dimen>
+    <dimen name="texto_titulo">28sp</dimen>
+    <dimen name="texto_rotulo">16sp</dimen>
+    <dimen name="texto_pequeno">13sp</dimen>
+</resources>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/branco"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/margem_tela">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="-40dp"
+            android:contentDescription="@string/desc_logo"
+            android:src="@drawable/logo_grande_clean" />
+
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/app_name"
+            android:textColor="@color/verde_primario"
+            android:textSize="@dimen/texto_titulo"
+            android:textStyle="bold" />
+
+        <!-- Login -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/login_label"
+            android:textColor="@color/preto"
+            android:textSize="@dimen/texto_rotulo"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_campo"
+            android:layout_marginTop="6dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/bg_input"
+            android:elevation="4dp"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="12dp"
+            android:textColor="@color/preto"
+            android:textColorHint="@color/cinza_texto"
+            android:textSize="@dimen/texto_pequeno" />
+
+        <!-- Senha -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/senha_label"
+            android:textColor="@color/preto"
+            android:textSize="@dimen/texto_rotulo"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etSenha"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_campo"
+            android:layout_marginTop="6dp"
+            android:autofillHints="password"
+            android:background="@drawable/bg_input"
+            android:elevation="4dp"
+            android:hint="@string/hint_senha"
+            android:inputType="textPassword"
+            android:paddingHorizontal="12dp"
+            android:textColor="@color/preto"
+            android:textColorHint="@color/cinza_texto"
+            android:textSize="@dimen/texto_pequeno" />
+
+        <TextView
+            android:id="@+id/tvEsqueciSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="6dp"
+            android:text="@string/esqueci_senha"
+            android:textColor="@color/cinza_texto"
+            android:textSize="@dimen/texto_pequeno"
+            android:textStyle="italic" />
+
+        <!-- Botão -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_botao"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/fazer_login"
+            android:textColor="@color/branco"
+            android:textSize="@dimen/texto_rotulo"
+            android:textStyle="bold"
+            app:backgroundTint="@color/verde_primario"
+            app:cornerRadius="@dimen/raio_campo" />
+
+        <!-- Login social -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/entrar_com"
+            android:textColor="@color/preto"
+            android:textSize="@dimen/texto_rotulo"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivSocialApps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_social_apps"
+            android:src="@drawable/img_apps_clean" />
+
+        <TextView
+            android:id="@+id/tvCadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sem_conta"
+            android:textColor="@color/cinza_texto"
+            android:textSize="@dimen/texto_pequeno"
+            android:textStyle="italic" />
+    </LinearLayout>
+</ScrollView>
