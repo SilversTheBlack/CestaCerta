@@ -1,5 +1,6 @@
 package com.example.cestacerta
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Toast
@@ -21,14 +22,15 @@ class SobreNosActivity : AppCompatActivity() {
         }
 
         findViewById<ImageButton>(R.id.btnInicio).setOnClickListener {
-            Toast.makeText(this, "Início (em breve)", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, InicioActivity::class.java))
+            finish()
         }
         findViewById<ImageButton>(R.id.btnNotificacoes).setOnClickListener {
             Toast.makeText(this, "Notificações (em breve)", Toast.LENGTH_SHORT).show()
         }
         findViewById<ImageButton>(R.id.btnSobre).setOnClickListener {
-            // Já estamos na tela Sobre Nós
         }
+
         findViewById<ImageButton>(R.id.btnPerfil).setOnClickListener {
             Toast.makeText(this, "Perfil (em breve)", Toast.LENGTH_SHORT).show()
         }
