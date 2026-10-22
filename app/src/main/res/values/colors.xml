@@ -4,4 +4,6 @@
     <color name="cinza_texto">#8E8E8E</color>
     <color name="preto">#000000</color>
     <color name="branco">#FFFFFF</color>
+    <color name="verde">#FF4CAF50</color>
+    <color name="verde_claro">#FFC8E6C9</color>
 </resources>
