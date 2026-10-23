@@ -9,4 +9,6 @@
     <dimen name="texto_titulo">28sp</dimen>
     <dimen name="texto_rotulo">16sp</dimen>
     <dimen name="texto_pequeno">13sp</dimen>
+    <dimen name="tamanho_avatar">88dp</dimen>
+    <dimen name="tamanho_logo_cadastro">80dp</dimen>
 </resources>

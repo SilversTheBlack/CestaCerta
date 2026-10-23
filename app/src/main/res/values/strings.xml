@@ -14,4 +14,23 @@
     <string name="desc_apple">Entrar com Apple</string>
     <string name="desc_facebook">Entrar com Facebook</string>
     <string name="desc_social_apps">Ícones de login social</string>
+    <!-- Descrições de acessibilidade dos campos de cadastro -->
+    <string name="nome_label">Nome</string>
+    <string name="email_label">E-mail</string>
+    <string name="hint_nome">João Silva</string>
+    <string name="hint_email_cadastro">joaosilva@gmail.com</string>
+    <string name="hint_senha_cadastro">*********</string>
+    <string name="insira_imagem">Insira Imagem</string>
+    <string name="perfil_label">Perfil de acesso</string>
+    <string name="acessar">Acessar</string>
+    <string name="desc_foto_perfil">Foto de perfil</string>
+
+    <string name="requisitos_senha">• Mínimo de 8 caracteres;\n• Mínimo de 2 números;\n• Mínimo de um caractere especial;\n• Mínimo de uma letra maiúscula;\n• Mínimo de uma letra minúscula.</string>
+    <string name="exemplo_senha">Exemplo de uma senha forte: Hpet1Tion4#</string>
+
+    <string-array name="perfis">
+        <item>Selecione seu tipo de perfil</item>
+        <item>Cliente</item>
+        <item>Vendedor</item>
+    </string-array>
 </resources>

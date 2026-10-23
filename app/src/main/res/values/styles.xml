@@ -1,0 +1,24 @@
+<resources>
+    <!-- Rótulo acima dos campos: "Nome", "E-mail"... -->
+    <style name="Rotulo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textColor">@color/preto</item>
+        <item name="android:textSize">@dimen/texto_rotulo</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Campo de texto com borda arredondada -->
+    <style name="Campo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/altura_campo</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:background">@drawable/bg_input</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:paddingHorizontal">12dp</item>
+        <item name="android:textColor">@color/preto</item>
+        <item name="android:textColorHint">@color/cinza_texto</item>
+        <item name="android:textSize">@dimen/texto_pequeno</item>
+    </style>
+</resources>
