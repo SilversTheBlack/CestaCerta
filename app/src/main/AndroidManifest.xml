@@ -24,6 +24,18 @@
         <activity
             android:name=".SobreNosActivity"
             android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroMercadoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MercadoEspecificoActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

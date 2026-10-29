@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela de um mercado específico: médias de preço por categoria e localização -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mercado_especifico"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/branco"
+    android:orientation="vertical">
+
+    <!-- Conteúdo com rolagem (NestedScrollView para a lista de categorias rolar dentro dele) -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/margem_tela">
+
+            <!-- Logo + nome do app lado a lado -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/tamanho_logo_cadastro"
+                    android:layout_height="@dimen/tamanho_logo_cadastro"
+                    android:contentDescription="@string/desc_logo"
+                    android:src="@drawable/logo_grande_clean" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/verde_primario"
+                    android:textSize="@dimen/texto_titulo"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Mercado (preenchido pelo código) -->
+            <ImageView
+                android:id="@+id/ivLogoMercado"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/desc_logo_mercado"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/mercado_hipermais" />
+
+            <TextView
+                android:id="@+id/tvNomeMercado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/texto_rotulo"
+                android:textStyle="bold"
+                tools:text="Hipermais" />
+
+            <!-- Painel com as médias de preço por categoria -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_painel_cinza"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="6dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/categoria_label"
+                        android:textColor="@color/preto"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/media_preco_label"
+                        android:textColor="@color/preto"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Lista com rolagem própria (altura fixa, como no protótipo) -->
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:fadeScrollbars="false"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingEnd="6dp">
+
+                        <!-- Higiene -->
+                        <LinearLayout
+                            android:id="@+id/itemHigiene"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/bg_caixa_borda"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="14dp">
+
+                            <ImageView
+                                android:layout_width="47dp"
+                                android:layout_height="47dp"
+                                android:contentDescription="@null"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/cat_higiene" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="@string/cat_higiene"
+                                android:textColor="@color/preto"
+                                android:textSize="@dimen/texto_rotulo"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvPrecoHigiene"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/preto"
+                                android:textSize="14sp"
+                                tools:text="R$60,57" />
+                        </LinearLayout>
+
+                        <!-- Limpeza -->
+                        <LinearLayout
+                            android:id="@+id/itemLimpeza"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/bg_caixa_borda"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="14dp">
+
+                            <ImageView
+                                android:layout_width="47dp"
+                                android:layout_height="47dp"
+                                android:contentDescription="@null"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/cat_limpeza" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="@string/cat_limpeza"
+                                android:textColor="@color/preto"
+                                android:textSize="@dimen/texto_rotulo"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvPrecoLimpeza"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/preto"
+                                android:textSize="14sp"
+                                tools:text="R$70,18" />
+                        </LinearLayout>
+
+                        <!-- Hortifruti -->
+                        <LinearLayout
+                            android:id="@+id/itemHortifruti"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/bg_caixa_borda"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="14dp">
+
+                            <ImageView
+                                android:layout_width="47dp"
+                                android:layout_height="47dp"
+                                android:contentDescription="@null"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/cat_hortifruti" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="@string/cat_hortifruti"
+                                android:textColor="@color/preto"
+                                android:textSize="@dimen/texto_rotulo"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvPrecoHortifruti"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/preto"
+                                android:textSize="14sp"
+                                tools:text="R$50,37" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
+
+            <!-- Localização -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/onde_encontrar_loja"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/texto_rotulo"
+                android:textStyle="bold" />
+
+            <!-- Card do mapa (o card inteiro é clicável e leva ao Google Maps) -->
+            <LinearLayout
+                android:id="@+id/cardComoChegar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_caixa_borda"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/ivMapaLoja"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:contentDescription="@string/desc_mapa_loja"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_mapa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/como_chegar"
+                        android:textColor="@color/preto"
+                        android:textSize="@dimen/texto_rotulo"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_como_chegar" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Barra de navegação de baixo (o ícone laranja é o destacado) -->
+    <LinearLayout
+        android:id="@+id/barraInferior"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="@color/verde_claro"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnInicio"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Início"
+            android:src="@drawable/nav_inicio" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="28dp"
+            android:background="@color/verde" />
+
+        <ImageButton
+            android:id="@+id/btnNotificacoes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Notificações"
+            android:src="@drawable/nav_notificacoes"
+            android:tint="#F57C00" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="28dp"
+            android:background="@color/verde" />
+
+        <ImageButton
+            android:id="@+id/btnSobre"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Sobre nós"
+            android:src="@drawable/nav_sobre" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="28dp"
+            android:background="@color/verde" />
+
+        <ImageButton
+            android:id="@+id/btnPerfil"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Perfil"
+            android:src="@drawable/nav_perfil" />
+    </LinearLayout>
+
+</LinearLayout>

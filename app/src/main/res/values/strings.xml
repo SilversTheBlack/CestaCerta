@@ -1,4 +1,5 @@
 <resources>
+    <!-- Strings da tela de login -->
     <string name="app_name">CestaCerta</string>
     <string name="login_label">Login</string>
     <string name="senha_label">Senha</string>
@@ -14,7 +15,7 @@
     <string name="desc_apple">Entrar com Apple</string>
     <string name="desc_facebook">Entrar com Facebook</string>
     <string name="desc_social_apps">Ícones de login social</string>
-    <!-- Descrições de acessibilidade dos campos de cadastro -->
+    <!-- Descrições de acessibilidade dos campos de cadastro de usuário -->
     <string name="nome_label">Nome</string>
     <string name="email_label">E-mail</string>
     <string name="hint_nome">João Silva</string>
@@ -33,4 +34,43 @@
         <item>Cliente</item>
         <item>Vendedor</item>
     </string-array>
+
+    <!-- Strings da tela de cadastro de mercado -->
+    <string name="cadastrar_novo_mercado">Cadastrar novo mercado</string>
+    <string name="nome_empresa_label">Nome da empresa*</string>
+    <string name="cnpj_label">CNPJ(não obrigatório)</string>
+    <string name="endereco_empresa_label">Endereço da empresa*</string>
+    <string name="cep_label">CEP</string>
+    <string name="rua_label">Rua*</string>
+    <string name="bairro_label">Bairro*</string>
+    <string name="cidade_label">Cidade*</string>
+    <string name="hint_nome_empresa">Priscila Atacadão</string>
+    <string name="hint_cnpj">91.880.929/0001-08</string>
+    <string name="hint_cep">04696-000</string>
+    <string name="hint_rua">Av. Eng. Eusébio Stevaux 823</string>
+    <string name="hint_bairro">Santo Amaro</string>
+    <string name="hint_cidade">São Paulo</string>
+    <string name="ou">OU</string>
+    <string name="selecione_lugar_mapa">Selecione o lugar no mapa</string>
+    <string name="desc_mapa">Mapa para selecionar a localização do mercado</string>
+    <string name="cadastrar">Cadastrar</string>
+
+    <!-- Strings do pop-up de cadastro de produto -->
+    <string name="nome_produto_label">Nome do Produto</string>
+    <string name="preco_label">Preço</string>
+    <string name="hint_nome_produto">Detergente FC</string>
+    <string name="hint_preco">R$4,20</string>
+    <string name="insira_imagem_aqui">Insira a Imagem Aqui</string>
+    <string name="salvar">Salvar</string>
+    <string name="desc_logo_mercado">Logo do mercado</string>
+
+    <!-- Strings da tela de mercado específico -->
+    <string name="categoria_label">Categoria</string>
+    <string name="media_preco_label">Média de preço</string>
+    <string name="cat_higiene">Higiene</string>
+    <string name="cat_limpeza">Limpeza</string>
+    <string name="cat_hortifruti">Hortifruti</string>
+    <string name="onde_encontrar_loja">Onde posso encontrar a loja?</string>
+    <string name="como_chegar">Como chegar?</string>
+    <string name="desc_mapa_loja">Mapa com a localização da loja</string>
 </resources>

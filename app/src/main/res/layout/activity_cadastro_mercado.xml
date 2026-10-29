@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela de cadastro de novo mercado -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cadastro_mercado"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/branco"
+    android:orientation="vertical">
+
+    <!-- Conteúdo com rolagem -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/margem_tela">
+
+            <!-- Logo + nome do app lado a lado -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="@dimen/tamanho_logo_cadastro"
+                    android:layout_height="@dimen/tamanho_logo_cadastro"
+                    android:contentDescription="@string/desc_logo"
+                    android:src="@drawable/logo_grande_clean" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/verde_primario"
+                    android:textSize="@dimen/texto_titulo"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Título -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="@string/cadastrar_novo_mercado"
+                android:textColor="@color/preto"
+                android:textSize="20sp" />
+
+            <!-- Nome da empresa -->
+            <TextView
+                style="@style/Rotulo"
+                android:layout_marginTop="32dp"
+                android:text="@string/nome_empresa_label" />
+
+            <EditText
+                android:id="@+id/etNomeEmpresa"
+                style="@style/Campo"
+                android:hint="@string/hint_nome_empresa"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords" />
+
+            <!-- CNPJ -->
+            <TextView
+                style="@style/Rotulo"
+                android:text="@string/cnpj_label" />
+
+            <EditText
+                android:id="@+id/etCnpj"
+                style="@style/Campo"
+                android:digits="0123456789./-"
+                android:hint="@string/hint_cnpj"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="18" />
+
+            <!-- Endereço -->
+            <TextView
+                style="@style/Rotulo"
+                android:layout_marginTop="28dp"
+                android:text="@string/endereco_empresa_label" />
+
+            <!-- CEP -->
+            <TextView
+                style="@style/Rotulo"
+                android:layout_marginTop="12dp"
+                android:text="@string/cep_label" />
+
+            <EditText
+                android:id="@+id/etCep"
+                style="@style/Campo"
+                android:autofillHints="postalCode"
+                android:digits="0123456789-"
+                android:hint="@string/hint_cep"
+                android:inputType="number"
+                android:maxLength="9" />
+
+            <!-- Rua -->
+            <TextView
+                style="@style/Rotulo"
+                android:text="@string/rua_label" />
+
+            <EditText
+                android:id="@+id/etRua"
+                style="@style/Campo"
+                android:autofillHints="streetAddress"
+                android:hint="@string/hint_rua"
+                android:inputType="textPostalAddress|textCapWords" />
+
+            <!-- Bairro -->
+            <TextView
+                style="@style/Rotulo"
+                android:text="@string/bairro_label" />
+
+            <EditText
+                android:id="@+id/etBairro"
+                style="@style/Campo"
+                android:hint="@string/hint_bairro"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords" />
+
+            <!-- Cidade -->
+            <TextView
+                style="@style/Rotulo"
+                android:text="@string/cidade_label" />
+
+            <EditText
+                android:id="@+id/etCidade"
+                style="@style/Campo"
+                android:autofillHints="addressLocality"
+                android:hint="@string/hint_cidade"
+                android:inputType="textCapWords" />
+
+            <!-- OU -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:text="@string/ou"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/texto_rotulo"
+                android:textStyle="bold" />
+
+            <!-- Selecionar no mapa (o card inteiro é clicável) -->
+            <LinearLayout
+                android:id="@+id/cardMapa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_caixa_borda"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/ivMapa"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:contentDescription="@string/desc_mapa"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_mapa" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/selecione_lugar_mapa"
+                        android:textColor="@color/preto"
+                        android:textSize="@dimen/texto_rotulo"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_localizacao" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Botão -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/altura_botao"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/cadastrar"
+                android:textColor="@color/branco"
+                android:textSize="@dimen/texto_rotulo"
+                android:textStyle="bold"
+                app:backgroundTint="@color/verde_primario"
+                app:cornerRadius="@dimen/raio_campo" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Barra de navegação de baixo (o ícone laranja é o destacado) -->
+    <LinearLayout
+        android:id="@+id/barraInferior"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="@color/verde_claro"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnInicio"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Início"
+            android:src="@drawable/nav_inicio" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="28dp"
+            android:background="@color/verde" />
+
+        <ImageButton
+            android:id="@+id/btnNotificacoes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Notificações"
+            android:src="@drawable/nav_notificacoes"
+             />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="28dp"
+            android:background="@color/verde" />
+
+        <ImageButton
+            android:id="@+id/btnSobre"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Sobre nós"
+            android:src="@drawable/nav_sobre" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="28dp"
+            android:background="@color/verde" />
+
+        <ImageButton
+            android:id="@+id/btnPerfil"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Perfil"
+            android:src="@drawable/nav_perfil" />
+    </LinearLayout>
+
+</LinearLayout>
