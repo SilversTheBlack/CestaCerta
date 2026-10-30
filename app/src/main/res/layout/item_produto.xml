@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:layout_marginTop="22dp"
+    android:background="@drawable/bg_caixa_borda"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="6dp"
+    android:paddingEnd="14dp">
+
+    <ImageView
+        android:id="@+id/ivProduto"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:contentDescription="Foto do produto"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/ic_produto" />
+
+    <TextView
+        android:id="@+id/tvNomeProduto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:maxLines="2"
+        android:textColor="@color/preto"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Detergente Silva" />
+
+    <TextView
+        android:id="@+id/tvPreco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/preto"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="R$2,19" />
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/barraInferior"
+    android:layout_width="match_parent"
+    android:layout_height="73dp"
+    android:background="@color/verde_claro"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/btnInicio"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Início"
+        android:padding="18dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/nav_inicio" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="28dp"
+        android:background="@color/verde" />
+
+    <ImageButton
+        android:id="@+id/btnNotificacoes"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Notificações"
+        android:padding="18dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/nav_notificacoes" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="28dp"
+        android:background="@color/verde" />
+
+    <ImageButton
+        android:id="@+id/btnSobre"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Sobre nós"
+        android:padding="18dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/nav_sobre" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="28dp"
+        android:background="@color/verde" />
+
+    <ImageButton
+        android:id="@+id/btnPerfil"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Perfil"
+        android:padding="18dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/nav_perfil" />
+</LinearLayout>

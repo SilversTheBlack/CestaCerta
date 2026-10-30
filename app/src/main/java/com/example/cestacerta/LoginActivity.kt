@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var etEmail: EditText
     private lateinit var etSenha: EditText
 
@@ -34,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnLogin).setOnClickListener {
             if (validarCampos()) {
-                // TODO: autenticar o usuário (banco de dados / API)
                 Toast.makeText(this, "E-mail e senha válidos!", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, InicioActivity::class.java))
                 finish()
@@ -42,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.tvEsqueciSenha).setOnClickListener {
-            Toast.makeText(this, "Recuperar senha (em breve)", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, RecuperacaoSenhaActivity::class.java))
         }
 
         findViewById<ImageView>(R.id.ivSocialApps).setOnClickListener {

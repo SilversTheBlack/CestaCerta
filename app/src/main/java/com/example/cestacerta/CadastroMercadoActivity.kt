@@ -3,7 +3,6 @@ package com.example.cestacerta
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -13,7 +12,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
 
 class CadastroMercadoActivity : AppCompatActivity() {
-
     private lateinit var etNomeEmpresa: EditText
     private lateinit var etCnpj: EditText
     private lateinit var etCep: EditText
@@ -40,36 +38,19 @@ class CadastroMercadoActivity : AppCompatActivity() {
         etCidade = findViewById(R.id.etCidade)
 
         findViewById<LinearLayout>(R.id.cardMapa).setOnClickListener {
-            // TODO: abrir o mapa e preencher o endereço com o local escolhido
             Toast.makeText(this, "Mapa (em breve)", Toast.LENGTH_SHORT).show()
         }
 
         findViewById<MaterialButton>(R.id.btnCadastrar).setOnClickListener {
             if (validarCampos()) {
-                // TODO: salvar o mercado (banco de dados / API)
                 Toast.makeText(this, "Mercado cadastrado!", Toast.LENGTH_SHORT).show()
                 finish()
             }
         }
-
-        // Barra de navegação
-        findViewById<ImageButton>(R.id.btnInicio).setOnClickListener {
-            startActivity(Intent(this, InicioActivity::class.java))
-            finish()
-        }
-        findViewById<ImageButton>(R.id.btnNotificacoes).setOnClickListener {
-            Toast.makeText(this, "Notificações (em breve)", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<ImageButton>(R.id.btnSobre).setOnClickListener {
-            startActivity(Intent(this, SobreNosActivity::class.java))
-        }
-        findViewById<ImageButton>(R.id.btnPerfil).setOnClickListener {
-            Toast.makeText(this, "Perfil (em breve)", Toast.LENGTH_SHORT).show()
-        }
+        configurarBarraInferior()
     }
 
     private fun validarCampos(): Boolean {
-        // Campos obrigatórios (marcados com * na tela)
         val obrigatorios = listOf(
             etNomeEmpresa to "Informe o nome da empresa",
             etRua to "Informe a rua",
@@ -84,7 +65,6 @@ class CadastroMercadoActivity : AppCompatActivity() {
             }
         }
 
-        // CNPJ e CEP não são obrigatórios, mas se preenchidos precisam ter o tamanho certo
         val cnpj = etCnpj.text.toString().filter { it.isDigit() }
         if (cnpj.isNotEmpty() && cnpj.length != 14) {
             etCnpj.error = "CNPJ deve ter 14 números"

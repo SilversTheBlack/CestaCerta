@@ -1,5 +1,4 @@
 <resources>
-    <!-- Strings da tela de login -->
     <string name="app_name">CestaCerta</string>
     <string name="login_label">Login</string>
     <string name="senha_label">Senha</string>
@@ -9,13 +8,11 @@
     <string name="fazer_login">Fazer Login</string>
     <string name="entrar_com">Entrar com:</string>
     <string name="sem_conta">Não tem uma conta? Faça seu cadastro!</string>
-    <!-- Descrições de acessibilidade das imagens -->
     <string name="desc_logo">Logo do Cesta Certa</string>
     <string name="desc_google">Entrar com Google</string>
     <string name="desc_apple">Entrar com Apple</string>
     <string name="desc_facebook">Entrar com Facebook</string>
     <string name="desc_social_apps">Ícones de login social</string>
-    <!-- Descrições de acessibilidade dos campos de cadastro de usuário -->
     <string name="nome_label">Nome</string>
     <string name="email_label">E-mail</string>
     <string name="hint_nome">João Silva</string>
@@ -35,7 +32,6 @@
         <item>Vendedor</item>
     </string-array>
 
-    <!-- Strings da tela de cadastro de mercado -->
     <string name="cadastrar_novo_mercado">Cadastrar novo mercado</string>
     <string name="nome_empresa_label">Nome da empresa*</string>
     <string name="cnpj_label">CNPJ(não obrigatório)</string>
@@ -55,7 +51,6 @@
     <string name="desc_mapa">Mapa para selecionar a localização do mercado</string>
     <string name="cadastrar">Cadastrar</string>
 
-    <!-- Strings do pop-up de cadastro de produto -->
     <string name="nome_produto_label">Nome do Produto</string>
     <string name="preco_label">Preço</string>
     <string name="hint_nome_produto">Detergente FC</string>
@@ -64,7 +59,6 @@
     <string name="salvar">Salvar</string>
     <string name="desc_logo_mercado">Logo do mercado</string>
 
-    <!-- Strings da tela de mercado específico -->
     <string name="categoria_label">Categoria</string>
     <string name="media_preco_label">Média de preço</string>
     <string name="cat_higiene">Higiene</string>
@@ -73,4 +67,20 @@
     <string name="onde_encontrar_loja">Onde posso encontrar a loja?</string>
     <string name="como_chegar">Como chegar?</string>
     <string name="desc_mapa_loja">Mapa com a localização da loja</string>
+
+    <string name="recupere_login">Recupere seu login</string>
+    <string name="insira_email_recuperacao">Insira seu e-mail para recuperação da conta</string>
+    <string name="enviar_codigo">Enviar código</string>
+    <string name="voltar_inicio">Voltar para início</string>
+
+    <string name="minha_conta">Minha conta</string>
+    <string name="tipo_perfil_label">Tipo de perfil:</string>
+    <string name="redefinir_senha">Deseja redefinir sua senha? <b><u>Clique aqui</u></b></string>
+
+    <string name="produto_label">Produto</string>
+    <string name="cadastrar_produto">Cadastrar Produto</string>
+    <string name="preco_atualizado">Preço atualizado há 2 horas</string>
+    <string name="nenhum_produto">Nenhum produto encontrado</string>
+    <string name="supermercado_label">Supermercado</string>
+    <string name="hint_busca_produto">Pesquise pelo nome do produto</string>
 </resources>

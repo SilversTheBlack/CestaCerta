@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="8dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="@dimen/tamanho_logo_cadastro"
+        android:layout_height="@dimen/tamanho_logo_cadastro"
+        android:contentDescription="@string/desc_logo"
+        android:src="@drawable/logo_grande_clean" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/app_name"
+        android:textColor="@color/verde_primario"
+        android:textSize="@dimen/texto_titulo"
+        android:textStyle="bold" />
+</LinearLayout>

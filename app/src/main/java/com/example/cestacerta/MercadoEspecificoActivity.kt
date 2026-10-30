@@ -4,7 +4,6 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -17,9 +16,7 @@ import java.text.NumberFormat
 import java.util.Locale
 
 class MercadoEspecificoActivity : AppCompatActivity() {
-
     companion object {
-        // Dados que a tela anterior deve mandar no Intent
         const val EXTRA_NOME = "nome_mercado"
         const val EXTRA_LOGO = "logo_mercado"
         const val EXTRA_ENDERECO = "endereco_mercado"
@@ -41,7 +38,6 @@ class MercadoEspecificoActivity : AppCompatActivity() {
             insets
         }
 
-        // TODO: os valores padrão são só de exemplo, até os dados virem do banco / API
         val nome = intent.getStringExtra(EXTRA_NOME) ?: "Hipermais"
         val logo = intent.getIntExtra(EXTRA_LOGO, R.drawable.mercado_hipermais)
         val endereco = intent.getStringExtra(EXTRA_ENDERECO) ?: "Hipermais Supermercados"
@@ -53,42 +49,31 @@ class MercadoEspecificoActivity : AppCompatActivity() {
         mostrarPreco(R.id.tvPrecoLimpeza, intent.getDoubleExtra(EXTRA_PRECO_LIMPEZA, 70.18))
         mostrarPreco(R.id.tvPrecoHortifruti, intent.getDoubleExtra(EXTRA_PRECO_HORTIFRUTI, 50.37))
 
-        // Categorias
-        findViewById<LinearLayout>(R.id.itemHigiene).setOnClickListener {
-            Toast.makeText(this, "Produtos de Higiene (em breve)", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<LinearLayout>(R.id.itemLimpeza).setOnClickListener {
-            Toast.makeText(this, "Produtos de Limpeza (em breve)", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<LinearLayout>(R.id.itemHortifruti).setOnClickListener {
-            Toast.makeText(this, "Produtos de Hortifruti (em breve)", Toast.LENGTH_SHORT).show()
+        val categorias = mapOf(
+            R.id.itemHigiene to "Higiene",
+            R.id.itemLimpeza to "Limpeza",
+            R.id.itemHortifruti to "Hortifruti"
+        )
+        for ((id, categoria) in categorias) {
+            findViewById<LinearLayout>(id).setOnClickListener {
+                val abrir = Intent(this, ProdutosMercadoActivity::class.java)
+                abrir.putExtra(ProdutosMercadoActivity.EXTRA_NOME, nome)
+                abrir.putExtra(ProdutosMercadoActivity.EXTRA_LOGO, logo)
+                abrir.putExtra(ProdutosMercadoActivity.EXTRA_CATEGORIA, categoria)
+                startActivity(abrir)
+            }
         }
 
         findViewById<LinearLayout>(R.id.cardComoChegar).setOnClickListener {
             abrirNoMaps(endereco)
         }
-
-        // Barra de navegação
-        findViewById<ImageButton>(R.id.btnInicio).setOnClickListener {
-            startActivity(Intent(this, InicioActivity::class.java))
-            finish()
-        }
-        findViewById<ImageButton>(R.id.btnNotificacoes).setOnClickListener {
-            Toast.makeText(this, "Notificações (em breve)", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<ImageButton>(R.id.btnSobre).setOnClickListener {
-            startActivity(Intent(this, SobreNosActivity::class.java))
-        }
-        findViewById<ImageButton>(R.id.btnPerfil).setOnClickListener {
-            Toast.makeText(this, "Perfil (em breve)", Toast.LENGTH_SHORT).show()
-        }
+        configurarBarraInferior()
     }
 
     private fun mostrarPreco(idTexto: Int, preco: Double) {
         findViewById<TextView>(idTexto).text = formatoReal.format(preco)
     }
 
-    // Abre o app do Google Maps (ou o navegador, se o app não estiver instalado)
     private fun abrirNoMaps(endereco: String) {
         val uri = Uri.parse("https://www.google.com/maps/search/?api=1&query=" + Uri.encode(endereco))
         try {

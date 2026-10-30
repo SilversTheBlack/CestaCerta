@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/perfil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/branco"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp"
+            android:paddingTop="@dimen/margem_tela"
+            android:paddingBottom="24dp">
+
+            <include layout="@layout/layout_cabecalho" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="@string/minha_conta"
+                android:textColor="@color/laranja"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ivFotoPerfil"
+                android:layout_width="97dp"
+                android:layout_height="97dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_avatar"
+                android:contentDescription="@string/desc_foto_perfil"
+                android:padding="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/nav_perfil" />
+
+            <TextView
+                style="@style/Rotulo"
+                android:layout_marginTop="28dp"
+                android:text="@string/nome_label" />
+
+            <TextView
+                android:id="@+id/tvNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/preto"
+                android:textSize="14sp" />
+
+            <TextView
+                style="@style/Rotulo"
+                android:layout_marginTop="16dp"
+                android:text="@string/email_label" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/preto"
+                android:textSize="14sp" />
+
+            <TextView
+                style="@style/Rotulo"
+                android:layout_marginTop="16dp"
+                android:text="@string/senha_label" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="***********"
+                android:textColor="@color/preto"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvRedefinirSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:paddingVertical="4dp"
+                android:text="@string/redefinir_senha"
+                android:textColor="@color/preto"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/tipo_perfil_label"
+                android:textColor="@color/preto"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTipoPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_tipo_perfil"
+                android:gravity="center"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/texto_rotulo"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/layout_barra_inferior" />
+</LinearLayout>

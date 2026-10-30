@@ -26,7 +26,6 @@ class CadastroUsuarioActivity : AppCompatActivity() {
 
     private var fotoPerfil: Uri? = null
 
-    // Abre a galeria para escolher a foto de perfil
     private val escolherFoto =
         registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
             if (uri != null) {
@@ -54,7 +53,6 @@ class CadastroUsuarioActivity : AppCompatActivity() {
         etSenha = findViewById(R.id.etSenha)
         spPerfil = findViewById(R.id.spPerfil)
 
-        // Opções do spinner vêm do string-array "perfis"
         val adapter = ArrayAdapter.createFromResource(this, R.array.perfis, R.layout.item_spinner)
         adapter.setDropDownViewResource(R.layout.item_spinner)
         spPerfil.adapter = adapter
@@ -65,7 +63,6 @@ class CadastroUsuarioActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnAcessar).setOnClickListener {
             if (validarCampos()) {
-                // TODO: salvar o usuário (banco de dados / API)
                 Toast.makeText(this, "Cadastro realizado!", Toast.LENGTH_SHORT).show()
                 finish()
             }
@@ -92,7 +89,6 @@ class CadastroUsuarioActivity : AppCompatActivity() {
             etSenha.requestFocus()
             return false
         }
-        // Posição 0 é o "Selecione seu tipo de perfil"
         if (spPerfil.selectedItemPosition == 0) {
             Toast.makeText(this, "Selecione seu tipo de perfil", Toast.LENGTH_SHORT).show()
             return false
@@ -100,12 +96,11 @@ class CadastroUsuarioActivity : AppCompatActivity() {
         return true
     }
 
-    // Mesmas regras mostradas na tela (requisitos_senha)
     private fun senhaForte(senha: String): Boolean {
         return senha.length >= 8 &&
-            senha.count { it.isDigit() } >= 2 &&
-            senha.any { !it.isLetterOrDigit() } &&
-            senha.any { it.isUpperCase() } &&
-            senha.any { it.isLowerCase() }
+                senha.count { it.isDigit() } >= 2 &&
+                senha.any { !it.isLetterOrDigit() } &&
+                senha.any { it.isUpperCase() } &&
+                senha.any { it.isLowerCase() }
     }
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recuperacao_senha"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/branco"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/margem_tela">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="@string/desc_logo"
+            android:src="@drawable/logo_grande_clean" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/verde_primario"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="@string/recupere_login"
+            android:textColor="@color/preto"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:gravity="center"
+            android:text="@string/insira_email_recuperacao"
+            android:textColor="@color/preto"
+            android:textSize="@dimen/texto_rotulo"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etEmailRecuperacao"
+            style="@style/Campo"
+            android:autofillHints="emailAddress"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEnviarCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_botao"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/enviar_codigo"
+            android:textColor="@color/branco"
+            android:textSize="@dimen/texto_rotulo"
+            android:textStyle="bold"
+            app:backgroundTint="@color/verde_primario"
+            app:cornerRadius="@dimen/raio_campo" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVoltarInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="48dp"
+            android:paddingHorizontal="24dp"
+            android:text="@string/voltar_inicio"
+            android:textColor="@color/branco"
+            android:textSize="@dimen/texto_pequeno"
+            android:textStyle="bold"
+            app:backgroundTint="@color/verde_primario"
+            app:cornerRadius="@dimen/raio_campo" />
+    </LinearLayout>
+</ScrollView>

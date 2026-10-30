@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -53,19 +51,6 @@ class InicioActivity : AppCompatActivity() {
                 startActivity(abrir)
             }
         }
-
-        findViewById<ImageButton>(R.id.btnInicio).setOnClickListener {
-
-        }
-        findViewById<ImageButton>(R.id.btnNotificacoes).setOnClickListener {
-            Toast.makeText(this, "Notificações (em breve)", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<ImageButton>(R.id.btnSobre).setOnClickListener {
-            startActivity(Intent(this, SobreNosActivity::class.java))
-            finish()
-        }
-        findViewById<ImageButton>(R.id.btnPerfil).setOnClickListener {
-            Toast.makeText(this, "Perfil (em breve)", Toast.LENGTH_SHORT).show()
-        }
+        configurarBarraInferior()
     }
 }

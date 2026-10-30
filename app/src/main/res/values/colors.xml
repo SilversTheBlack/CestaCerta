@@ -8,4 +8,7 @@
     <color name="branco">#FFFFFF</color>
     <color name="verde">#FF4CAF50</color>
     <color name="verde_claro">#FFC8E6C9</color>
+    <color name="cinza_avatar">#FFD9D9D9</color>
+    <color name="laranja">#FFF5A623</color>
+    <color name="verde_perfil">#FFA5D6A7</color>
 </resources>
