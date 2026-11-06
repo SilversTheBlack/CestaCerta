@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CestaCerta">
         <activity
-            android:name=".MainActivity"
+            android:name=".InicioActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -35,6 +37,24 @@
             android:exported="false" />
         <activity
             android:name=".MercadoEspecificoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProdutosMercadoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProdutoEspecificoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecuperacaoSenhaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificacoesActivity"
             android:exported="false" />
     </application>
 

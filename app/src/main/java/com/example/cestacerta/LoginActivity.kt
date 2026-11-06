@@ -11,7 +11,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
+import io.github.jan.supabase.auth.auth
+import io.github.jan.supabase.auth.exception.AuthErrorCode
+import io.github.jan.supabase.auth.exception.AuthRestException
+import io.github.jan.supabase.auth.providers.builtin.Email
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var etEmail: EditText
@@ -31,12 +38,9 @@ class LoginActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.etEmail)
         etSenha = findViewById(R.id.etSenha)
 
-        findViewById<MaterialButton>(R.id.btnLogin).setOnClickListener {
-            if (validarCampos()) {
-                Toast.makeText(this, "E-mail e senha válidos!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, InicioActivity::class.java))
-                finish()
-            }
+        val btnLogin = findViewById<MaterialButton>(R.id.btnLogin)
+        btnLogin.setOnClickListener {
+            if (validarCampos()) entrar(btnLogin)
         }
 
         findViewById<TextView>(R.id.tvEsqueciSenha).setOnClickListener {
@@ -49,6 +53,36 @@ class LoginActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tvCadastro).setOnClickListener {
             startActivity(Intent(this, CadastroUsuarioActivity::class.java))
+        }
+    }
+
+    private fun entrar(botao: MaterialButton) {
+        val emailDigitado = etEmail.text.toString().trim()
+        val senhaDigitada = etSenha.text.toString()
+
+        botao.isEnabled = false
+        lifecycleScope.launch {
+            try {
+                supabase.auth.signInWith(Email) {
+                    email = emailDigitado
+                    password = senhaDigitada
+                }
+                startActivity(Intent(this@LoginActivity, InicioActivity::class.java))
+                finish()
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: AuthRestException) {
+                val mensagem = when (e.errorCode) {
+                    AuthErrorCode.InvalidCredentials -> "E-mail ou senha incorretos"
+                    AuthErrorCode.EmailNotConfirmed -> "Confirme seu e-mail antes de entrar"
+                    else -> "Não foi possível entrar. Tente novamente."
+                }
+                Toast.makeText(this@LoginActivity, mensagem, Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(this@LoginActivity, "Erro de conexão. Tente novamente.", Toast.LENGTH_SHORT).show()
+            } finally {
+                botao.isEnabled = true
+            }
         }
     }
 

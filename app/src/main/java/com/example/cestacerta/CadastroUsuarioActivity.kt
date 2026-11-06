@@ -14,7 +14,16 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
+import io.github.jan.supabase.auth.auth
+import io.github.jan.supabase.auth.exception.AuthErrorCode
+import io.github.jan.supabase.auth.exception.AuthRestException
+import io.github.jan.supabase.auth.providers.builtin.Email
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.launch
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
 
 class CadastroUsuarioActivity : AppCompatActivity() {
 
@@ -61,10 +70,49 @@ class CadastroUsuarioActivity : AppCompatActivity() {
             escolherFoto.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
 
-        findViewById<MaterialButton>(R.id.btnAcessar).setOnClickListener {
-            if (validarCampos()) {
-                Toast.makeText(this, "Cadastro realizado!", Toast.LENGTH_SHORT).show()
+        val btnAcessar = findViewById<MaterialButton>(R.id.btnAcessar)
+        btnAcessar.setOnClickListener {
+            if (validarCampos()) cadastrar(btnAcessar)
+        }
+    }
+
+    private fun cadastrar(botao: MaterialButton) {
+        val nome = etNome.text.toString().trim()
+        val emailDigitado = etEmail.text.toString().trim()
+        val senhaDigitada = etSenha.text.toString()
+        val tipo = if (spPerfil.selectedItemPosition == 2) "vendedor" else "cliente"
+
+        botao.isEnabled = false
+        lifecycleScope.launch {
+            try {
+                supabase.auth.signUpWith(Email) {
+                    email = emailDigitado
+                    password = senhaDigitada
+                    data = buildJsonObject {
+                        put("full_name", nome)
+                        put("tipo", tipo)
+                    }
+                }
+                val mensagem = if (supabase.auth.currentSessionOrNull() != null) {
+                    "Cadastro realizado!"
+                } else {
+                    "Cadastro realizado! Confirme seu e-mail para entrar."
+                }
+                Toast.makeText(this@CadastroUsuarioActivity, mensagem, Toast.LENGTH_LONG).show()
                 finish()
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: AuthRestException) {
+                val mensagem = if (e.errorCode == AuthErrorCode.UserAlreadyExists) {
+                    "Este e-mail já está cadastrado"
+                } else {
+                    "Não foi possível cadastrar. Tente novamente."
+                }
+                Toast.makeText(this@CadastroUsuarioActivity, mensagem, Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(this@CadastroUsuarioActivity, "Erro de conexão. Tente novamente.", Toast.LENGTH_SHORT).show()
+            } finally {
+                botao.isEnabled = true
             }
         }
     }
