@@ -4,12 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import com.google.android.material.button.MaterialButton
+import io.github.jan.supabase.auth.auth
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.launch
 
 class PerfilActivity : AppCompatActivity() {
     private lateinit var ivFotoPerfil: ImageView
@@ -49,6 +55,27 @@ class PerfilActivity : AppCompatActivity() {
             startActivity(Intent(this, RecuperacaoSenhaActivity::class.java))
         }
 
+        val btnSair = findViewById<MaterialButton>(R.id.btnSair)
+        btnSair.setOnClickListener { sair(btnSair) }
+
         configurarBarraInferior()
+    }
+
+    private fun sair(botao: MaterialButton) {
+        botao.isEnabled = false
+        lifecycleScope.launch {
+            try {
+                supabase.auth.signOut()
+                val abrir = Intent(this@PerfilActivity, LoginActivity::class.java)
+                abrir.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(abrir)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                Toast.makeText(this@PerfilActivity, "Não foi possível sair. Tente novamente.", Toast.LENGTH_SHORT).show()
+            } finally {
+                botao.isEnabled = true
+            }
+        }
     }
 }

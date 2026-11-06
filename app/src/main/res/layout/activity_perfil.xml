@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -108,6 +109,18 @@
                 android:textColor="@color/preto"
                 android:textSize="@dimen/texto_rotulo"
                 android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSair"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/altura_botao"
+                android:layout_marginTop="24dp"
+                android:text="@string/sair_da_conta"
+                android:textColor="@color/branco"
+                android:textSize="@dimen/texto_rotulo"
+                android:textStyle="bold"
+                app:backgroundTint="@color/verde_primario"
+                app:cornerRadius="@dimen/raio_campo" />
         </LinearLayout>
     </ScrollView>
 

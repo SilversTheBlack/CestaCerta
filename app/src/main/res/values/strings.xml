@@ -75,6 +75,7 @@
 
     <string name="minha_conta">Minha conta</string>
     <string name="tipo_perfil_label">Tipo de perfil:</string>
+    <string name="sair_da_conta">Sair da conta</string>
     <string name="redefinir_senha">Deseja redefinir sua senha? <b><u>Clique aqui</u></b></string>
 
     <string name="produto_label">Produto</string>
