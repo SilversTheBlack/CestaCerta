@@ -61,12 +61,23 @@ class PerfilActivity : AppCompatActivity() {
         configurarBarraInferior()
     }
 
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            supabase.auth.awaitInitialization()
+            if (!estaLogado()) {
+                startActivity(Intent(this@PerfilActivity, LoginActivity::class.java))
+                finish()
+            }
+        }
+    }
+
     private fun sair(botao: MaterialButton) {
         botao.isEnabled = false
         lifecycleScope.launch {
             try {
                 supabase.auth.signOut()
-                val abrir = Intent(this@PerfilActivity, LoginActivity::class.java)
+                val abrir = Intent(this@PerfilActivity, InicioActivity::class.java)
                 abrir.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(abrir)
             } catch (e: CancellationException) {

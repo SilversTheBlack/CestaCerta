@@ -54,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvCadastro).setOnClickListener {
             startActivity(Intent(this, CadastroUsuarioActivity::class.java))
         }
+
+        configurarBarraInferior()
     }
 
     private fun entrar(botao: MaterialButton) {
@@ -67,8 +69,9 @@ class LoginActivity : AppCompatActivity() {
                     email = emailDigitado
                     password = senhaDigitada
                 }
-                startActivity(Intent(this@LoginActivity, InicioActivity::class.java))
-                finish()
+                val abrir = Intent(this@LoginActivity, InicioActivity::class.java)
+                abrir.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(abrir)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: AuthRestException) {

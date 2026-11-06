@@ -55,7 +55,18 @@ class CadastroMercadoActivity : AppCompatActivity() {
         btnCadastrar.setOnClickListener {
             if (validarCampos()) cadastrar(btnCadastrar)
         }
-        configurarBarraInferior()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            supabase.auth.awaitInitialization()
+            if (!estaLogado()) {
+                Toast.makeText(this@CadastroMercadoActivity, "Entre na sua conta para cadastrar um mercado", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@CadastroMercadoActivity, LoginActivity::class.java))
+                finish()
+            }
+        }
     }
 
     private fun cadastrar(botao: MaterialButton) {

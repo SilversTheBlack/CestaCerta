@@ -88,7 +88,7 @@ class ProdutosMercadoActivity : AppCompatActivity() {
         campoBusca.doAfterTextChanged { mostrarProdutos() }
 
         findViewById<MaterialButton>(R.id.btnCadastrarProduto).setOnClickListener {
-            abrirPopupCadastro()
+            exigirLogin { abrirPopupCadastro() }
         }
 
         mostrarProdutos()
