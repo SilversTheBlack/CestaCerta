@@ -51,3 +51,8 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Script de importação (Python) — o .env tem a chave service_role, NUNCA subir
+.env
+__pycache__/
+.venv/

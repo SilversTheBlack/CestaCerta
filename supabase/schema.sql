@@ -196,6 +196,32 @@ create policy "precos: vendedor gerencia os da sua empresa" on precos
                       where e.id = empresa_id and e.vendedor_id = auth.uid()));
 
 -- ---------------------------------------------------------------------
+-- 6.1 STORAGE — fotos de perfil
+--     Bucket privado; cada usuário só mexe na própria pasta:
+--     avatares/<id do usuário>/avatar.jpg
+-- ---------------------------------------------------------------------
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('avatares', 'avatares', false, 2097152, array['image/jpeg'])
+on conflict (id) do nothing;
+
+create policy "avatar: dono lê" on storage.objects
+  for select to authenticated
+  using (bucket_id = 'avatares' and (storage.foldername(name))[1] = auth.uid()::text);
+
+create policy "avatar: dono envia" on storage.objects
+  for insert to authenticated
+  with check (bucket_id = 'avatares' and (storage.foldername(name))[1] = auth.uid()::text);
+
+create policy "avatar: dono substitui" on storage.objects
+  for update to authenticated
+  using (bucket_id = 'avatares' and (storage.foldername(name))[1] = auth.uid()::text)
+  with check (bucket_id = 'avatares' and (storage.foldername(name))[1] = auth.uid()::text);
+
+create policy "avatar: dono apaga" on storage.objects
+  for delete to authenticated
+  using (bucket_id = 'avatares' and (storage.foldername(name))[1] = auth.uid()::text);
+
+-- ---------------------------------------------------------------------
 -- 7. DADOS INICIAIS
 -- ---------------------------------------------------------------------
 insert into categorias (nome, icone) values
