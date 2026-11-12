@@ -111,140 +111,29 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Média de preço"
+                        android:text="Acima do menor preço"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/mercadoVivaFresco"
+                <TextView
+                    android:id="@+id/tvStatusRanking"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_caixa_borda"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="14dp">
+                    android:gravity="center"
+                    android:text="Carregando mercados..."
+                    android:textColor="#666666"
+                    android:textSize="13sp" />
 
-                    <ImageView
-                        android:layout_width="47dp"
-                        android:layout_height="47dp"
-                        android:contentDescription="Logo Viva Fresco"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/mercado_viva_fresco" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Viva Fresco"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/precoVivaFresco"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="R$60,57"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
+                <!-- Ranking de mercados: os cards são criados pelo CategoriaActivity
+                     (molde: item_mercado_preco.xml) com os dados da view "ranking_categoria" -->
                 <LinearLayout
-                    android:id="@+id/mercadoCentral"
+                    android:id="@+id/listaRanking"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_marginTop="22dp"
-                    android:background="@drawable/bg_caixa_borda"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="14dp">
-
-                    <ImageView
-                        android:layout_width="47dp"
-                        android:layout_height="47dp"
-                        android:contentDescription="Logo Mercado Central"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/mercado_central" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Mercado Central"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/precoCentral"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="R$62,87"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/mercadoHipermais"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:layout_marginTop="22dp"
-                    android:background="@drawable/bg_caixa_borda"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="14dp">
-
-                    <ImageView
-                        android:layout_width="47dp"
-                        android:layout_height="47dp"
-                        android:contentDescription="Logo Hipermais"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/mercado_hipermais" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Hipermais"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/precoHipermais"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="R$65,90"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
